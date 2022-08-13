@@ -36,6 +36,19 @@ const BoardColumnComponent = (props) => {
         }));
     }
 
+    const moveColumn = (targetColumn) => { // Function to move column
+        if(window.confirm("Are you sure?") === true) {
+            let updatedBoard = Object.assign(board);
+
+            let temp = updatedBoard.config[colIndex];
+            updatedBoard.config[colIndex] = updatedBoard.config[targetColumn];
+            updatedBoard.config[targetColumn] = temp
+
+            BoardActions.put(updatedBoard.id, updatedBoard);
+            updateBoard({...updatedBoard});
+        }
+    }
+
     const saveColumn = (e) => { // Function to add/edit column
         e.preventDefault();
         let updatedBoard = {};
@@ -68,7 +81,9 @@ const BoardColumnComponent = (props) => {
 
     return <div className="border-rad column">
         <div className="border-rad column-header">
-            <button className="border-rad column-btn btn">{'<'}</button>
+            {
+                !(editable || editName) && colIndex > 0 ? <button className="border-rad column-btn btn" onClick={() => moveColumn(colIndex - 1)}>{'<'}</button> : null
+            }
             {
                 editable || editName ? 
                 <>
@@ -80,7 +95,9 @@ const BoardColumnComponent = (props) => {
                     <button className="btn" onClick={() => toggleEditName(!editName)}>Edit</button>
                 </>
             }
-            <button className="border-rad column-btn btn">{'>'}</button>
+            {
+                !(editable || editName) && colIndex < board.config.length - 1 ? <button className="border-rad column-btn btn" onClick={() => moveColumn(colIndex + 1)}>{'>'}</button> : null
+            }
         </div>
         <div className="column-body">
             {
