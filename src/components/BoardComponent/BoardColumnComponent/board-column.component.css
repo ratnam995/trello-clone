@@ -1,0 +1,35 @@
+.border-rad {
+    border-radius: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: 100%;
+    border: 2px solid gray;
+}
+
+.column-header {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    background-color: orangered;
+}
+
+.column-btn {
+    background-color: lightcoral
+}
+
+.column-title {
+    margin: 0px;
+    font-weight: 800;
+}
+
+.column-body {
+    padding: 10px;
+}

@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# Trello Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is implemented as part of coding challenge for MyBuilder Core team. This was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run this in local?
 
 In the project directory, you can run:
+
+### `npm install`
+
+This will install all the required dependencies to run this project.
+PS: I have used react-router v6 for setting up routes in this project.
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Information about the app
 
-### `npm test`
+### App Layout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The app layout comprises of 2 parts:
+    - App header
+    - App body
+- All the routes (or pages) are rendered in the App body.
 
-### `npm run build`
+### App Routes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This App contains 2 routes (or pages):
+#### Home
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Can be accessed on `http://localhost:3000`.
+- It has a button to add a new board.
+    - This button opens up a Modal, which has a form to setup a new board.
+    - Once the new board's setup is saved, user automatically gets redirected to the new board page.
+- Below the button, there is a list which displays all the saved boards.
+    - User can click on the specific board from the list to open it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Board
 
-### `npm run eject`
+- Can be accessed on `http://localhost:3000/board?id=board-id`.
+- This page is divided into 2 parts:
+    - Board detail
+        - Board detail contains:
+            - Board title
+            - Board description
+        - Board detail can be edited by clicking on the `Edit board details` button.
+        - Form is same as the one which was used to setup the board.
+    - Actual Board
+        - This contains various columns.
+            - For a new board, there is no column.
+        - User can add a column by entering the column title and then saving it.
+        - Each column which is saved (setup) can have cards.
+            - Card are sorted in order of high to low priority (i.e. P0 cards will appear on the top).
+            - A card form is present at the last of each column, after every card present in the column.
+                - If there are no cards in the column then the card form will appear on the top.
+            - User can set following properties to a card:
+                - Card title
+                - Card priority (P0 - P5)
+                - Card description
+            - For each saved card, there are 3 actions a user can perform:
+                - Move
+                    - User can move the card from one column to another by clicking on arrow buttons at the bottom of the card. There are 2 arrow buttons:
+                        - Left arrow button moves card to the left column (if present)
+                        - Right arrow button moves card to the right column (if present)
+                    - User can also change the column of the card, by choosing the appropriate column from the dropdown at the bottom of the card (between both arrow bottons).
+                - Edit
+                    - User can edit any card, by clicking the `Edit` button (present at the bottom of each saved card).
+                    - The card gets converted into a form, user can edit the form as needed.
+                    - User can also cancel editing a card.
+                - Delete
+                    - User can also delete any card.
+                    - There is a confirmation pop up before deleting a card.
+### State management
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This app uses a mixture of context API (for maintaing board detail) and component's local state.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Other important features, to make this production ready
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Collaboration
+    - Although this app can still be used as an individual (and advance) ToDo app setup in local.
+    - But I think one of the important features of such app is to collaborate with your peers.
+    - Some features could be:
+        - Ability to setup workspace for your team.
+        - Ability to invite people to workspace and to boards as needed.
+        - Collaboration on cards:
+            - Comments
+            - Follow/Unfollow for notifications
+            - Reactions
+- Better card configurability
+    - I think the cards can have more features like:
+        - Markdown for descrioption
+        - Ability to add attachement
+        - Due date
+        - Check lists
+        - Assginee
+    - Connecting 2 cards:
+        - There can be different relation between any 2 cards:
+            - parent <> child
+            - blocked by
+            - sub task
+- UX
+    - Responsive and eye caching design
+    - Ease of use:
+        - Drag and drop feature for cards and columns.
+        - Icons, instead of text buttons for edit, delete, save, etc (saves space and looks cool)
+    - Transitions on different UI changes.
+- Templates
+    - Ability to save board and card templates to reuse them later.
+- Email/Slack/Whatsapp integration
+    - For notifications about:
+        - Changes on tickets (which user is watching, i.e. following)
+        - Reminders for due dates
+        - Custom reminders.
+- Automated workflows
+    - Marking checklists done moves card to the relevant column.
+    - Sending notifications to different channels.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Important changes in the code/architecture, to make this production ready
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Proper state management
+    - This app (right now) lacks a proper state management.
+    - It can be optimised and cleaned by setting up some state management library (or creating one in house).
+- Models
+    - Right now the board, columns and cards are all tightly coupled in a single object.
+    - Ideally, we should break into different models:
+        - Board
+            - id
+            - title
+            - description
+            - createdAt
+            - updatedAt
+            - Anything else
+        - Column
+            - id
+            - boardId
+            - title
+            - position
+            - Anything else
+        - Card
+            - id
+            - columnId
+            - title
+            - description
+            - priority
+            - Anything else
+    - This will enable us to write more optimised code (both in BE and FE).
+- More of shared code

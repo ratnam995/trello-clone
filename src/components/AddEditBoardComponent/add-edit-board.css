@@ -1,0 +1,37 @@
+.vertical-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.white-bg {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.form-field {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field > span > label {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.form-field > p {
+    margin: 5px 0px 0px;
+    font-size: 10px;
+    font-style: italic;
+}
+
+.description {
+    width: 300px;
+}
+
+.add-board-btn {
+    width: 100px;
+    margin: 20px auto 10px;
+}

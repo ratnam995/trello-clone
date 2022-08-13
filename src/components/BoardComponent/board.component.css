@@ -1,0 +1,15 @@
+.board-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-height: 100%;
+    margin-top: 50px;
+}
+
+.board-col-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,89 @@
+.card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card-header > p {
+    margin: 0px;
+}
+
+.card-header > select {
+    width: 50px
+}
+
+.card-description {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.in {
+    height: 100px;
+}
+
+.para {
+    max-height: 100px;
+}
+
+.card-navigator {
+    display: flex;
+    flex: 1 auto 1;
+}
+
+.column-select{
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-save-btn {
+    background-color: lightcoral;
+    margin-top: 20px;
+}
+
+.card-cancel-btn {
+    background-color: lightgray;
+    color: black;
+    margin: 20px 10px 0px 0px;
+}
+
+.card-edit-btn {
+    background-color: orange;
+    color: black;
+    margin: 20px 10px 0px 0px;
+}
+
+.card-delete-btn {
+    background-color: red;
+    color: white;
+    margin: 20px 10px 0px 0px;
+}
+
+.card-btn {
+    background-color: lightsalmon;
+    width: 40px;
+}
+
+.left-btn {
+    margin-right: 10px;
+}
+
+.right-btn {
+    margin-left: 10px;
+}

@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { Route, Routes, useLocation } from 'react-router-dom';
+
 import './App.css';
 
+import HomePage from './pages/HomePage';
+import BoardPage from './pages/BoardPage';
+import { RouteNames } from './shared/constants/RouteNames.constants';
+
 function App() {
+  let location = useLocation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="app-header">
+        <p className="page-title">Trello clone: { RouteNames[location.pathname] }</p>
+      </div>
+      <div className="app-body">
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="board" element={<BoardPage/>}/>
+        </Routes>
+      </div>
     </div>
   );
 }

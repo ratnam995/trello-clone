@@ -1,0 +1,44 @@
+.board-list {
+    border: 2px solid gray;
+    list-style: none;
+    margin: 20px 0px;
+    padding: 20px;
+}
+
+.board-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-top: 2px solid gray;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    cursor: pointer;
+}
+
+.board-item:last-child {
+    border-bottom: 2px solid gray;
+}
+
+.board-item > .title {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 0px;
+}
+
+.board-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+
+.board-detail > .description {
+    font-size: 14px;
+    margin: 0px;
+}
+
+.board-detail > .date-time {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0px;
+}
