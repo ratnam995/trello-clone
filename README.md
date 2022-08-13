@@ -102,6 +102,7 @@ This app uses a mixture of context API (for maintaing board detail) and componen
             - sub task
 - UX
     - Responsive and eye caching design
+    - Proper validation on all the forms.
     - Ease of use:
         - Drag and drop feature for cards and columns.
         - Icons, instead of text buttons for edit, delete, save, etc (saves space and looks cool)
