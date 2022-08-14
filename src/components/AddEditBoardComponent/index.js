@@ -57,7 +57,7 @@ const AddEditBoardComponent = (props) => {
             editBoardDetail(null);
         } else {
             const id = BoardActions.post({...boardForm});
-            navigate(`board?id=${id}`)
+            navigate(`board/${id}`)
         }
     }
     

@@ -39,7 +39,7 @@ This App contains 2 routes (or pages):
 
 #### Board
 
-- Can be accessed on `http://localhost:3000/board?id=board-id`.
+- Can be accessed on `http://localhost:3000/board/:id`.
 - This page is divided into 2 parts:
     - Board detail
         - Board detail contains:

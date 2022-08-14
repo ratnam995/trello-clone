@@ -7,7 +7,7 @@ const BoardDetailComponent = (props) => {
 
     const openBoard = (e) => {
         e.preventDefault();
-        navigate(`board?id=${board.id}`)
+        navigate(`board/${board.id}`)
     }
 
     return <li className='board-item' onClick={openBoard}>

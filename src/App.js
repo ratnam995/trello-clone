@@ -17,7 +17,9 @@ function App() {
       <div className="app-body">
         <Routes>
           <Route path="/" element={<HomePage/>}/>
-          <Route path="board" element={<BoardPage/>}/>
+          <Route path="board" element={<BoardPage/>}>
+            <Route path=":id" element={<BoardPage/>}/>
+          </Route>
         </Routes>
       </div>
     </div>
